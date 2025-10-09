@@ -6,12 +6,13 @@
 /*   By: rraumain <rraumain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 11:02:14 by rraumain          #+#    #+#             */
-/*   Updated: 2025/10/09 11:17:54 by rraumain         ###   ########.fr       */
+/*   Updated: 2025/10/09 16:29:57 by rraumain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <iostream>
+#include <algorithm>
 
 Span::Span() : _size(0)
 {
@@ -31,6 +32,7 @@ Span &Span::operator=(const Span &other)
 		_numbers = other._numbers;
 	}
 	std::cout << "Span copy-assigned\n";
+	return (*this);
 }
 
 Span::~Span()
@@ -45,7 +47,18 @@ Span::Span(size_t N) : _size(N)
 
 void Span::addNumber(int nb)
 {
-	if (_numbers.size() <= _size)
-		_numbers.push_back(nb);
-	throw std::length_error("Span: capacity exceeded in addNumber");
+	if (_numbers.size() + 1 > _size)
+		throw std::length_error("Span: capacity exceeded in addNumber");
+	_numbers.push_back(nb);
+}
+
+
+size_t Span::longestSpan()
+{
+	if (_numbers.size() < 2)
+		throw std::logic_error("Span: at least 2 numbers required in longestSpan");
+	
+	std::vector<int>::iterator max = std::max_element(_numbers.begin(), _numbers.end());
+	std::vector<int>::iterator min = std::min_element(_numbers.begin(), _numbers.end());
+	return (*max - *min);
 }

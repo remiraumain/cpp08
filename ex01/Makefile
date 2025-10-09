@@ -6,13 +6,13 @@
 #    By: rraumain <rraumain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/07 12:54:40 by rraumain          #+#    #+#              #
-#    Updated: 2025/10/09 10:31:42 by rraumain         ###   ########.fr        #
+#    Updated: 2025/10/09 13:30:03 by rraumain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = span
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g -O0
 
 SRC = main.cpp Span.cpp
 
