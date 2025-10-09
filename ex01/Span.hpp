@@ -6,7 +6,7 @@
 /*   By: rraumain <rraumain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 10:49:36 by rraumain          #+#    #+#             */
-/*   Updated: 2025/10/09 16:50:29 by rraumain         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:44:22 by rraumain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Span
 			_numbers.insert(_numbers.end(), first, last);
 		}
 		
-		size_t shortestSpan(); // 4 8 3 -> 3 4 8 -> 1 -> 1
+		size_t shortestSpan();
 		size_t longestSpan();
 	
 	private:

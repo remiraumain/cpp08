@@ -6,7 +6,7 @@
 /*   By: rraumain <rraumain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 13:12:14 by rraumain          #+#    #+#             */
-/*   Updated: 2025/10/09 16:48:50 by rraumain         ###   ########.fr       */
+/*   Updated: 2025/10/09 19:00:26 by rraumain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int main()
 	try
 	{
 		b.addNumbers(l.begin(), l.end());
-		std::cout << b.longestSpan() << "\n";
+		std::cout << b.shortestSpan() << "\n";
 	}
 	catch(const std::exception& e)
 	{

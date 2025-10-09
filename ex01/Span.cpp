@@ -6,13 +6,14 @@
 /*   By: rraumain <rraumain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 11:02:14 by rraumain          #+#    #+#             */
-/*   Updated: 2025/10/09 16:29:57 by rraumain         ###   ########.fr       */
+/*   Updated: 2025/10/09 19:03:31 by rraumain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <iostream>
 #include <algorithm>
+#include <numeric>
 
 Span::Span() : _size(0)
 {
@@ -52,6 +53,18 @@ void Span::addNumber(int nb)
 	_numbers.push_back(nb);
 }
 
+
+size_t Span::shortestSpan()
+{
+	if (_numbers.size() < 2)
+		throw std::logic_error("Span: at least 2 numbers required in shortestSpan");
+	
+	std::vector<int> tmp = _numbers;
+	std::sort(tmp.begin(), tmp.end());
+	std::adjacent_difference(tmp.begin() + 1, tmp.end(), tmp.begin());
+	std::vector<int>::iterator min = std::min_element(_numbers.begin(), _numbers.end());
+	return (*min);
+}
 
 size_t Span::longestSpan()
 {
